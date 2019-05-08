@@ -1,0 +1,42 @@
+plugins {
+    id 'java-library'
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+	id 'java'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.paellaworld.panopticon'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+}
+
+dependencies {
+    api 'org.apache.commons:commons-math3:3.6.1'
+
+    implementation 'com.google.guava:guava:27.0.1-jre'
+    
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	compile ('org.mariadb.jdbc:mariadb-java-client:1.1.7')
+	compile 'com.googlecode.log4jdbc:log4jdbc:1.2'
+	compile ('org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16')
+	compile ('org.mariadb.jdbc:mariadb-java-client:1.1.7')
+	
+	//For crawling
+	compile 'org.jsoup:jsoup:1.11.3'
+}
